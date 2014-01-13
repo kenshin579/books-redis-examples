@@ -23,7 +23,7 @@ public class JedisHelper {
         config.maxActive = 20;
         config.whenExhaustedAction = GenericObjectPool.WHEN_EXHAUSTED_BLOCK;
 
-        this.pool = new JedisPool(config, REDIS_HOST, REDIS_PORT, 5000);
+        this.pool = new JedisPool(config, REDIS_HOST, REDIS_PORT, 5000, "cloudoffice");
     }
 
     /**
