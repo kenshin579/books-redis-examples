@@ -19,7 +19,7 @@
  ******************************************************/
 package redisbook.ch8.replication;
 
-import redisbook.ch7.redislogger.KeyMaker;
+import redisbook.ch7_practice.redislogger.KeyMaker;
 
 
 /**

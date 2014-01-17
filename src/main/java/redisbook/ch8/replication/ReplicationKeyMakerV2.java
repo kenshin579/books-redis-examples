@@ -20,7 +20,7 @@
 package redisbook.ch8.replication;
 
 
-import redisbook.ch7.redislogger.KeyMaker;
+import redisbook.ch7_practice.redislogger.KeyMaker;
 
 /**
  * @author <A HREF="mailto:smufu@naver.com">kris jeong</A> smufu@naver.com
