@@ -6,7 +6,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 import java.util.List;
 import java.util.Set;

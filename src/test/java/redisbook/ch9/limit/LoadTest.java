@@ -3,8 +3,8 @@ package redisbook.ch9.limit;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import redisbook.JedisHelper;
 import redisbook.ch9.BasicLoadMaker;
+import redisbook.util.JedisHelper;
 
 
 public class LoadTest {

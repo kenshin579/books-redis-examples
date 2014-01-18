@@ -20,7 +20,7 @@
 package redisbook.ch10;
 
 import redis.clients.jedis.Jedis;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 import java.util.Random;
 

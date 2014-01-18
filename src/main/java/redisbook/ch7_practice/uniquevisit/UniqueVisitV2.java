@@ -3,7 +3,7 @@
 //import redis.clients.jedis.BitOP;
 //import redis.clients.jedis.Jedis;
 //import redis.clients.jedis.Pipeline;
-//import redisbook.JedisHelper;
+//import redisbook.util.JedisHelper;
 //
 //import java.text.SimpleDateFormat;
 //import java.util.Date;

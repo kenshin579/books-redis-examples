@@ -17,7 +17,7 @@
  ********** edited **********
  *
  ******************************************************/
-package redisbook;
+package redisbook.util;
 
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.apache.commons.pool.impl.GenericObjectPool.Config;
@@ -34,9 +34,9 @@ import java.util.*;
  *         class desc
  */
 public class ShardedJedisHelper {
-    protected static final String SHARD1_HOST = "192.168.56.102";
+    protected static final String SHARD1_HOST = "localhost";
     protected static final int SHARD1_PORT = 6380;
-    protected static final String SHARD2_HOST = "192.168.56.102";
+    protected static final String SHARD2_HOST = "localhost";
     protected static final int SHARD2_PORT = 6381;
 
     private final Set<ShardedJedis> connectionList = new HashSet<ShardedJedis>();
@@ -61,8 +61,12 @@ public class ShardedJedisHelper {
         config.whenExhaustedAction = GenericObjectPool.WHEN_EXHAUSTED_BLOCK;
 
         List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
-        shards.add(new JedisShardInfo(SHARD1_HOST, SHARD1_PORT));
-        shards.add(new JedisShardInfo(SHARD2_HOST, SHARD2_PORT));
+        JedisShardInfo jedisShardInfo1 = new JedisShardInfo(SHARD1_HOST, SHARD1_PORT);
+        jedisShardInfo1.setPassword("cloudoffice");
+        JedisShardInfo jedisShardInfo2 = new JedisShardInfo(SHARD2_HOST, SHARD2_PORT);
+        jedisShardInfo2.setPassword("cloudoffice");
+        shards.add(jedisShardInfo1);
+        shards.add(jedisShardInfo2);
 
         this.shardedPool = new ShardedJedisPool(config, shards, Hashing.MURMUR_HASH);
     }

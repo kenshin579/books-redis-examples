@@ -34,7 +34,8 @@ import static org.junit.Assert.fail;
  *         class desc
  */
 public class ReplicationTest {
-    private static final int TEST_COUNT = 100000;
+    //    private static final int TEST_COUNT = 100000;
+    private static final int TEST_COUNT = 1000;
 
     static Jedis master;
 

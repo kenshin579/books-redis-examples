@@ -3,7 +3,7 @@ package redisbook.ch7_practice.visitcount;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 import java.util.List;
 

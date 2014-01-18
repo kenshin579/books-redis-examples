@@ -1,4 +1,4 @@
-package redisbook;
+package redisbook.util;
 
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.apache.commons.pool.impl.GenericObjectPool.Config;

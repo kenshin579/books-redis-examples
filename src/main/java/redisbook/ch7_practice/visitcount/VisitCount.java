@@ -1,7 +1,7 @@
 package redisbook.ch7_practice.visitcount;
 
 import redis.clients.jedis.Jedis;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 import java.util.ArrayList;
 import java.util.List;

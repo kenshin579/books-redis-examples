@@ -21,7 +21,7 @@ package redisbook.ch6;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 
 /**

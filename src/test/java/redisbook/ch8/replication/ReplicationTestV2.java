@@ -23,7 +23,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
-import redisbook.ch7.redislogger.KeyMaker;
+import redisbook.ch7_practice.redislogger.KeyMaker;
 
 import java.util.List;
 
@@ -44,8 +44,8 @@ public class ReplicationTestV2 {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        master = new Jedis("192.168.56.102", 6300);
-        slave = new Jedis("192.168.56.102", 6301);
+        master = new Jedis("172.16.25.132", 6300);
+        slave = new Jedis("localhost", 6301);
     }
 
     @AfterClass

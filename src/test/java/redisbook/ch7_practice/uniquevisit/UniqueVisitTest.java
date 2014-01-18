@@ -4,7 +4,7 @@
 //import org.junit.Before;
 //import org.junit.BeforeClass;
 //import org.junit.Test;
-//import redisbook.JedisHelper;
+//import redisbook.util.JedisHelper;
 //
 //import java.text.SimpleDateFormat;
 //import java.util.Date;

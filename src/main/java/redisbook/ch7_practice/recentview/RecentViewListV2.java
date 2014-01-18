@@ -1,7 +1,7 @@
 package redisbook.ch7_practice.recentview;
 
 import redis.clients.jedis.Jedis;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 import java.util.Set;
 

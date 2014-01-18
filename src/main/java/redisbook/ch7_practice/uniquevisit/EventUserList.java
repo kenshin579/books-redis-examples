@@ -1,7 +1,7 @@
 package redisbook.ch7_practice.uniquevisit;
 
 import redis.clients.jedis.Jedis;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 
 public class EventUserList {

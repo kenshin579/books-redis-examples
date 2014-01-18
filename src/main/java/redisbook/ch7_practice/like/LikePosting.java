@@ -2,7 +2,7 @@ package redisbook.ch7_practice.like;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Pipeline;
-import redisbook.JedisHelper;
+import redisbook.util.JedisHelper;
 
 import java.util.ArrayList;
 import java.util.List;
