@@ -64,6 +64,18 @@ public class HashZipListTest {
     }
 
     @Test
+    public void testUnlimitedEncoding() {
+        assertEquals("ziplist", this.hashZipList.getBeforeEncoding1("11", 2));
+    }
+
+    @Test
+    public void test_다른_key끼리는_encoding방식에_서로_영향을_주지_않는지_확인() {
+        assertEquals("ziplist", this.hashZipList.getBeforeEncoding1("101", 512));
+
+        assertEquals("hashtable", this.hashZipList.getBeforeEncoding1("102", 513));
+    }
+
+    @Test
     public void testEncodingTestForDataSize() {
         assertEquals("ziplist", this.hashZipList.getBeforeEncoding2());
 

@@ -61,6 +61,11 @@ public class HashZipList {
         return this.jedis.objectEncoding(KEY_HASH_ENTRY_TEST);
     }
 
+    public String getBeforeEncoding1(String documentId, int maxEntrySize) {
+        initHashForEntryTest(documentId, maxEntrySize);
+        return this.jedis.objectEncoding(KEY_HASH_ENTRY_TEST + documentId);
+    }
+
     /**
      * 511개의 데이터가 저장된 해시 데이터의 인코딩 정보를 가져온다.
      *
@@ -68,6 +73,11 @@ public class HashZipList {
      */
     public String getAfterEncoding1() {
         this.jedis.hset(KEY_HASH_ENTRY_TEST, "lastfield", "test value");
+        return this.jedis.objectEncoding(KEY_HASH_ENTRY_TEST);
+    }
+
+    public String getAfterEncoding1(String documentId) {
+        this.jedis.hset(KEY_HASH_ENTRY_TEST + documentId, "lastfield", "test value");
         return this.jedis.objectEncoding(KEY_HASH_ENTRY_TEST);
     }
 
@@ -116,6 +126,15 @@ public class HashZipList {
             this.jedis.hset(KEY_HASH_ENTRY_TEST, "field1" + (i + 1), "test value" + i);
         }
     }
+
+    private void initHashForEntryTest(String documentId, int maxEntrySize) {
+        this.jedis.del(KEY_HASH_ENTRY_TEST);
+
+        for (int i = 0; i < maxEntrySize; i++) {
+            this.jedis.hset(KEY_HASH_ENTRY_TEST + documentId, "field1" + (i + 1), "test value" + i);
+        }
+    }
+
 
     private void initHashForLengthTest() {
         this.jedis.del(KEY_HASH_LENGTH_TEST);
