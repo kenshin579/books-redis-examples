@@ -26,7 +26,11 @@ import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 import redis.clients.util.Hashing;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author <A HREF="mailto:smufu@naver.com">kris jeong</A> smufu@naver.com
@@ -35,13 +39,13 @@ import java.util.*;
  */
 public class ShardedJedisHelper {
     protected static final String SHARD1_HOST = "localhost";
-    protected static final int SHARD1_PORT = 6380;
+    protected static final int SHARD1_PORT = 6381;
     protected static final String SHARD2_HOST = "localhost";
-    protected static final int SHARD2_PORT = 6381;
+    protected static final int SHARD2_PORT = 6382;
 
-    private final Set<ShardedJedis> connectionList = new HashSet<ShardedJedis>();
+    private final Set<ShardedJedis> connectionList = new HashSet<ShardedJedis>(); //1.샤딩된 레디스 서버에 접속된 제디스 연결을 저장함
 
-    private ShardedJedisPool shardedPool;
+    private ShardedJedisPool shardedPool; //2. 샤딩된 jedis pool 객체를 선언함
 
     /**
      * 싱글톤 처리를 위한 홀더 클래스, 제디스 연결풀이 포함된 도우미 객체를 반환한다.
@@ -60,7 +64,7 @@ public class ShardedJedisHelper {
         config.maxActive = 20;
         config.whenExhaustedAction = GenericObjectPool.WHEN_EXHAUSTED_BLOCK;
 
-        List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
+        List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>(); //3.샤드 서버의 목록을 저장하고 서버 목록을 대상으로 샤딩을 수행함
         JedisShardInfo jedisShardInfo1 = new JedisShardInfo(SHARD1_HOST, SHARD1_PORT);
         jedisShardInfo1.setPassword("cloudoffice");
         JedisShardInfo jedisShardInfo2 = new JedisShardInfo(SHARD2_HOST, SHARD2_PORT);
@@ -68,7 +72,7 @@ public class ShardedJedisHelper {
         shards.add(jedisShardInfo1);
         shards.add(jedisShardInfo2);
 
-        this.shardedPool = new ShardedJedisPool(config, shards, Hashing.MURMUR_HASH);
+        this.shardedPool = new ShardedJedisPool(config, shards, Hashing.MURMUR_HASH); //4.해시 메서드는 MurmurHash를 사용함
     }
 
     /**
@@ -87,7 +91,7 @@ public class ShardedJedisHelper {
      * @return 제디스 객체
      */
     final public ShardedJedis getConnection() {
-        ShardedJedis jedis = this.shardedPool.getResource();
+        ShardedJedis jedis = this.shardedPool.getResource(); //5.샤딩된 jedis connection pool에서 connection을 가져옴
         this.connectionList.add(jedis);
 
         return jedis;

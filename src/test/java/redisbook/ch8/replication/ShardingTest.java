@@ -34,7 +34,7 @@ import static org.junit.Assert.assertEquals;
  *         class desc
  */
 public class ShardingTest {
-    private static final int TEST_COUNT = 500;
+    private static final int TEST_COUNT = 10;
 
     static ShardedJedisHelper helper;
 
